@@ -11,3 +11,8 @@ function getComputerChoice() {
   }
 }
 
+function getHumanChoice() {
+  let choice = prompt("What is you choice?", "");
+  return choice;
+}
+
