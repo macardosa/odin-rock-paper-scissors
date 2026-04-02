@@ -52,6 +52,16 @@ function playGame() {
   playRound();
   playRound();
   playRound();
+
+  const resultOfGame = (humanScore === computerScore) ? "It's a tie! 😐"
+    : (humanScore > computerScore) ? "Bravo! You win! 🥳" 
+    : "Sorry. You lose. 😄";
+
+  // reset score counters
+  humanScore = 0;
+  computerScore = 0;
+
+  alert(resultOfGame);
 }
 
 playGame();
