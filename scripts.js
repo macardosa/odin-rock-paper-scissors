@@ -57,11 +57,11 @@ function playGame() {
     : (humanScore > computerScore) ? "Bravo! You win! 🥳" 
     : "Sorry. You lose. 😄";
 
+  alert(`${resultOfGame} - Machine: ${computerScore} vs Human: ${humanScore}`);
+
   // reset score counters
   humanScore = 0;
   computerScore = 0;
-
-  alert(resultOfGame);
 }
 
 playGame();
