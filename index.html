@@ -8,21 +8,32 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="layout">
+    <div class="layout-round">
       <div class="scores">
+        <div class="human-score">Your score: 0</div>
         <div class="computer-score">Computer: 0</div>
-        <div class="human-score">Human: 0</div>
       </div>
 
-      <div class="heading">Select your choice</div>
+      <h1 class="round-number-box">ROUND #1</h1>
 
-      <div class="choices">
-        <div class="choice-button">ROCK</div>
-        <div class="choice-button">SCISSORS</div>
-        <div class="choice-button">PAPER</div>
+      <div class="user-choice-wrapper">
+        <div class="heading">Select your choice</div>
+        <div class="choices">
+          <div class="choice-button" value="rock">
+            <div class="emoji">✊</div>
+            <div>ROCK</div>
+          </div>
+          <div class="choice-button" value="scissors">
+            <div class="emoji">✌️</div>
+            <div>SCISSORS</div>
+          </div>
+          <div class="choice-button" value="paper">
+            <div class="emoji">✋</div>
+            <div>PAPER</div>
+          </div>
+        </div>
+        <div class="log-area">Good Luck!</div>
       </div>
-
-      <div class="log-area">Good Luck!</div>
     </div>
   </body>
 </html>
