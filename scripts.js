@@ -37,11 +37,11 @@ let playRound = (humanChoice) => {
   } else if (humanChoice === "paper" && computerChoice === "rock") {
     logArea.textContent = "You win! Paper beats Rock";
     humanScore++;
-    humanScoreWidget.textContent = `Computer: ${humanScore}`;
+    humanScoreWidget.textContent = `Human: ${humanScore}`;
   } else if (humanChoice === "scissors" && computerChoice === "paper") {
     logArea.textContent = "You win! Scissors beats Rock";
     humanScore++;
-    humanScoreWidget.textContent = `Computer: ${humanScore}`;
+    humanScoreWidget.textContent = `Human: ${humanScore}`;
   } else if (humanChoice === "paper" && computerChoice === "scissors") {
     logArea.textContent = "You lose! Scissors beats Paper";
     computerScore++;
@@ -49,7 +49,7 @@ let playRound = (humanChoice) => {
   } else if (humanChoice === "rock" && computerChoice === "scissors") {
     logArea.textContent = "You win! Rocks beats scissors";
     humanScore++;
-    humanScoreWidget.textContent = `Computer: ${humanScore}`;
+    humanScoreWidget.textContent = `Human: ${humanScore}`;
   } else if (humanChoice === "scissors" && computerChoice === "rock") {
     logArea.textContent = "You lose! Rock beats Scissors";
     computerScore++;
@@ -57,7 +57,7 @@ let playRound = (humanChoice) => {
   }
 
   if (isThereAWinner()) {
-    if (humanChoice === MAX_ROUNDS) {
+    if (humanScore === MAX_ROUNDS) {
       logArea.textContent = "Bravo! You win! 🥳";
     } else {
       logArea.textContent = "Sorry. You lose. 😄";
