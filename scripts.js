@@ -1,6 +1,8 @@
 let humanScore = 0;
 let computerScore = 0;
 
+const MAX_ROUNDS = 5;
+
 function getComputerChoice() {
   let choice = Math.floor(Math.random() * 3) + 1;
 
@@ -14,54 +16,82 @@ function getComputerChoice() {
   }
 }
 
-function getHumanChoice() {
-  let choice = prompt("What is you choice?", "");
-  return choice;
+function isThereAWinner() {
+  return (humanScore === MAX_ROUNDS || computerScore === MAX_ROUNDS) ? true : false;
 }
 
-let playRound = () => {
-  const humanChoice = getHumanChoice().toLowerCase();
+let playRound = (humanChoice) => {
+  const logArea = document.querySelector(".log-area");
+  const computerScoreWidget = document.querySelector(".computer-score");
+  const humanScoreWidget = document.querySelector(".human-score");
+
   const computerChoice = getComputerChoice();
- 
+
   if (humanChoice === computerChoice) {
-    console.log("Tie!");
+    logArea.textContent = "Tie!";
+    return;
   } else if (humanChoice === "rock" && computerChoice === "paper") {
-    console.log("You lose! Paper beats Rock");
+    logArea.textContent = "You lose! Paper beats Rock";
     computerScore++;
+    computerScoreWidget.textContent = `Computer: ${computerScore}`;
   } else if (humanChoice === "paper" && computerChoice === "rock") {
-    console.log("You win! Paper beats Rock");
+    logArea.textContent = "You win! Paper beats Rock";
     humanScore++;
+    humanScoreWidget.textContent = `Computer: ${humanScore}`;
   } else if (humanChoice === "scissors" && computerChoice === "paper") {
-    console.log("You win! Scissors beats Rock");
+    logArea.textContent = "You win! Scissors beats Rock";
     humanScore++;
+    humanScoreWidget.textContent = `Computer: ${humanScore}`;
   } else if (humanChoice === "paper" && computerChoice === "scissors") {
-    console.log("You lose! Scissors beats Paper");
+    logArea.textContent = "You lose! Scissors beats Paper";
     computerScore++;
+    computerScoreWidget.textContent = `Computer: ${computerScore}`;
   } else if (humanChoice === "rock" && computerChoice === "scissors") {
-    console.log("You win! Rocks beats scissors");
+    logArea.textContent = "You win! Rocks beats scissors";
     humanScore++;
+    humanScoreWidget.textContent = `Computer: ${humanScore}`;
   } else if (humanChoice === "scissors" && computerChoice === "rock") {
-    console.log("You lose! Rock beats Scissors");
+    logArea.textContent = "You lose! Rock beats Scissors";
     computerScore++;
+    computerScoreWidget.textContent = `Computer: ${computerScore}`;
   }
+
+  if (isThereAWinner()) {
+    if (humanChoice === MAX_ROUNDS) {
+      logArea.textContent = "Bravo! You win! 🥳";
+    } else {
+      logArea.textContent = "Sorry. You lose. 😄";
+    }
+
+    const playAgainBtn = document.createElement("button");
+    playAgainBtn.textContent = "Play Again";
+    playAgainBtn.classList.add("play-again-btn");
+    playAgainBtn.addEventListener("click", resetGame);
+
+    logArea.appendChild(playAgainBtn);
+  }
+};
+
+function resetGame() {
+  humanScore = 0;
+  computerScore = 0;
+  const computerScoreWidget = document.querySelector(".computer-score");
+  computerScoreWidget.textContent = `Computer: ${computerScore}`;
+  const humanScoreWidget = document.querySelector(".human-score");
+  humanScoreWidget.textContent = `Human: ${computerScore}`;
+
+  const logArea = document.querySelector(".log-area");
+  logArea.playAgainBtn;
+  logArea.textContent = "Good Luck!";
 }
 
 function playGame() {
-  playRound();
-  playRound();
-  playRound();
-  playRound();
-  playRound();
+  const choiceButtons = document.querySelectorAll(".choice-button");
 
-  const resultOfGame = (humanScore === computerScore) ? "It's a tie! 😐"
-    : (humanScore > computerScore) ? "Bravo! You win! 🥳" 
-    : "Sorry. You lose. 😄";
-
-  alert(`${resultOfGame} - Machine: ${computerScore} vs Human: ${humanScore}`);
-
-  // reset score counters
-  humanScore = 0;
-  computerScore = 0;
+  choiceButtons.forEach((btn) => {
+    let humanChoice = btn.textContent.toLowerCase();
+    btn.addEventListener("click", () => playRound(humanChoice));
+  });
 }
 
 playGame();
