@@ -20,19 +20,18 @@ body {
   background-color: rgb(231, 229, 229);
   padding-top: 20px;
   border-radius: 10px;
-
-  @media (max-width: 600px) {
-    max-width: 500px;
-    margin: 0;
-  }
 }
 
 .layout-welcome {
-  height: 900px;
+  height: 1000px;
   align-items: center;
   justify-content: space-between;
   padding-block: 30px;
   gap: 40px;
+  @media (max-width: 600px) {
+    max-width: 500px;
+    margin: 0;
+  }
 }
 
 .layout-round {
