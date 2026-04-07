@@ -130,7 +130,7 @@ let playRound = (humanChoice) => {
 
   const endGameBtn = document.createElement("a");
   endGameBtn.textContent = "Exit game";
-  endGameBtn.href = "./welcome.html";
+  endGameBtn.href = "./index.html";
   endGameBtn.classList.add("end-game-btn");
   endBtnsWrapper.appendChild(endGameBtn);
   logArea.appendChild(endBtnsWrapper);
