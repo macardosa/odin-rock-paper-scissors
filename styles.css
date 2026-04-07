@@ -9,7 +9,6 @@ body {
   background-color: rgb(211, 208, 208);
 }
 
-.layout,
 .layout-welcome,
 .layout-round {
   max-width: 650px;
@@ -20,7 +19,12 @@ body {
   margin-top: 20px;
   background-color: rgb(231, 229, 229);
   padding-top: 20px;
-  border-radius: 10px;;
+  border-radius: 10px;
+
+  @media (max-width: 600px) {
+    max-width: 500px;
+    margin: 0;
+  }
 }
 
 .layout-welcome {
@@ -35,10 +39,15 @@ body {
   justify-content: space-around;
   align-items: center;
   padding: 0;
+  @media (width < 600px) {
+    height: 900px;
+    justify-content: space-between;
+    padding-top: 20px;
+  }
 }
 
 .layout-round h1 {
-  font-size: 3.0rem;
+  font-size: 3rem;
 }
 
 .user-choice-wrapper {
@@ -47,11 +56,18 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 50px;
+  @media (width < 600px) {
+    gap: 100px;
+  }
 }
 
 .game-rules {
   /* border: 2px solid brown; */
   width: 550px;
+  @media (width < 600px) {
+    width: 400px;
+    padding-left: 10px;
+  }
 }
 
 .game-rules ol > li {
@@ -62,6 +78,10 @@ body {
 ul li {
   padding-left: 20px;
   padding-top: 10px;
+  @media (width < 600px) {
+    width: 400px;
+    padding-left: 10px;
+  }
 }
 
 .game-rules h2 {
@@ -109,6 +129,9 @@ ul li {
   justify-content: space-between;
   /* border: 2px red solid; */
   width: 500px;
+  @media (width < 600px) {
+    width: 400px;
+  }
 }
 
 .heading {
@@ -131,6 +154,7 @@ ul li {
   display: flex;
   justify-content: center;
   gap: 60px;
+  flex-wrap: wrap;
 }
 
 .emoji {
@@ -164,6 +188,10 @@ ul li {
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  @media (width < 600px) {
+    margin-bottom: 40px;
+    gap: 100px;
+  }
 }
 
 .play-again-btn,
@@ -190,7 +218,9 @@ ul li {
 .selected-choices-wrapper {
   /* border: 3px red solid; */
   display: flex;
+  justify-content: center;
   gap: 50px;
+  flex-wrap: wrap;
 }
 
 .end-btns-wrapper {
